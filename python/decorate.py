@@ -1,29 +1,22 @@
-# 闭包函数
-# 变量的作用域
-name = "鲸鱼"
-# 定义是的参数叫做形参，传递是的参数叫做实参
-# 闭包函数被调用，需要j
+# 闭包函数就是一个装饰器
+# 函数调用装饰器，需要形参
 
 def func1(func):
-    print(name)
-
     def func2():
-        name = "虾米"
-        print(name)
-        print("闭包函数")
+        print("I am doing some boring work before executing a_func()")
+        func()
+        print("I am doing some boring work after executing a_func()")
 
     return func2
 
 
-# 调用func1函数实际上调用func2的函数对象，因为返回的就是func2
-# func1()
-# print(func1())
-# func22 = func1()
-# func22()
-
 @func1
 def be_decorate():
-    print("被装饰器装饰的函数")
+    print("我就是需要装饰的函数")
 
 
 be_decorate()
+# output：
+# I am doing some boring work before executing a_func()
+# 我就是需要装饰的函数
+# I am doing some boring work after executing a_func()
