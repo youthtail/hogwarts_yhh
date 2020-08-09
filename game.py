@@ -1,8 +1,9 @@
+# 函数的定义
 def game():
     my_hp = 2000
     your_hp = 2001
     while True:
-        my_power = range(100)
+        my_power = 200
         your_power = 199
         my_hp = my_hp - your_power
         your_hp = your_hp - my_power
@@ -15,5 +16,5 @@ def game():
             print("我赢了")
             break
 
-
+# 函数的调用
 game()
