@@ -14,7 +14,7 @@ def game():
     your_hp = 1000
     your_power = 12
     # 回合开始
-    i= 0
+    i = 0
     while True:
         i += 1
         a = fight(my_hp, my_power, your_hp, your_power)
