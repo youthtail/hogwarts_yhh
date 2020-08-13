@@ -49,3 +49,7 @@ print(f"我的字面量插值 \n {(lambda x:x+1)(2)}")
 # {}里面也可以是单引号
 print(f'我的字面量插值 \n {2}')
 
+a = {}
+aa = set()
+print(type(a))
+print(type(aa))
