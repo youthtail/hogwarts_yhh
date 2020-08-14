@@ -1,7 +1,6 @@
-
 # 闭包函数就是一个装饰器
 # 函数调用装饰器，需要形参
-
+# 装饰器
 def func1(func):
     def func2():
         print("I am doing some boring work before executing a_func()")

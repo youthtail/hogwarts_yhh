@@ -1,2 +1,5 @@
 .idea
 __py*
+pytest_2/.idea
+pytest_2/__py*
+pytest_2/venv
