@@ -39,8 +39,7 @@ class TongLao:
 
 class XuZhu(TongLao):
     def __init__(self):
-        self.my_hp = 1444
-        self.my_power = 111
+        super().__init__(1000,100)
 
     def read(self):
         print("罪过罪过")
