@@ -39,7 +39,9 @@ class TongLao:
 
 class XuZhu(TongLao):
     def __init__(self):
-        super().__init__(1000,100)
+
+        super().__init__(1000, 20)
+
 
     def read(self):
         print("罪过罪过")
