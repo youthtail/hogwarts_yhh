@@ -38,7 +38,7 @@ def teardown_function():
 
 
 def get_data():
-    with open("./data1.yml",encoding='utf-8') as f:
+    with open("./data1.yml", encoding='utf-8') as f:
         data = yaml.load(f)
         data_list = data["add"]["data"]
         ids = data["add"]["ids"]
@@ -47,14 +47,16 @@ def get_data():
 
 # 测试方法
 # 装饰器，传参
-
-@pytest.mark.parametrize('a,b,c', [(1, 2, 3), (1, 3, 4)],ids=["aaa", "bbb"])
+@pytest.mark.test_add
+@pytest.mark.parametrize('a,b,c', [(1, 2, 3), (1, 3, 4)], ids=["aaa", "bbb"])
 def test_fun1(a, b, c):
     assert plus(a, b) == c
 
-@pytest.mark.parametrize('a,b,c', get_data()[0],ids=get_data()[1])
+
+@pytest.mark.parametrize('a,b,c', get_data()[0], ids=get_data()[1])
 def test_fun1_1(a, b, c):
     assert plus(a, b) == c
+
 
 # 装饰器（装饰器是加在函数上的，调用函数的时候，会自动执行装饰器里的方法）
 @pytest.fixture()
@@ -77,13 +79,7 @@ class TestDemo:
         print('teardown')
 
 
-    with open("./data1.yml", encoding='utf-8') as f:
-        data = yaml.load(f)
-        data_list = data["add"]["data"]
-        ids = data["add"]["ids"]
-
-
-    @pytest.mark.parametrize('a,b,c',data_list, ids)
+    @pytest.mark.parametrize('a,b,c', get_data()[0],ids=get_data()[1])
     def test_fun2(self, a, b, c):
         print('测试方法：fun2')
         assert plus(a, b) == c
