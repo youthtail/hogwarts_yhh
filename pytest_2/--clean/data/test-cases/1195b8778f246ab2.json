@@ -1,0 +1,171 @@
+{
+  "uid" : "1195b8778f246ab2",
+  "name" : "test_times[large]",
+  "fullName" : "test_practice3.TestPractice#test_times",
+  "historyId" : "a12f4c19ee26a6cf30ec22f94628cda0",
+  "time" : {
+    "start" : 1598290749423,
+    "stop" : 1598290749424,
+    "duration" : 1
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "_Class__pytest_setup_class",
+    "time" : {
+      "start" : 1598290749352,
+      "stop" : 1598290749352,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "get_calc",
+    "time" : {
+      "start" : 1598290749351,
+      "stop" : 1598290749352,
+      "duration" : 1
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "7d9df379f27b90a3",
+      "name" : "stdout",
+      "source" : "7d9df379f27b90a3.txt",
+      "type" : "text/plain",
+      "size" : 39
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 1,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ {
+    "name" : "_Class__pytest_setup_class::0",
+    "time" : {
+      "start" : 1598290749477,
+      "stop" : 1598290749478,
+      "duration" : 1
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "get_calc::0",
+    "time" : {
+      "start" : 1598290749479,
+      "stop" : 1598290749479,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "labels" : [ {
+    "name" : "feature",
+    "value" : "测试类"
+  }, {
+    "name" : "tag",
+    "value" : "run(order=3)"
+  }, {
+    "name" : "suite",
+    "value" : "test_practice3"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestPractice"
+  }, {
+    "name" : "host",
+    "value" : "localhost"
+  }, {
+    "name" : "thread",
+    "value" : "22418-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test_practice3"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "a",
+    "value" : "222"
+  }, {
+    "name" : "b",
+    "value" : "1000"
+  }, {
+    "name" : "c",
+    "value" : "222000"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ {
+      "uid" : "7168799e27062fce",
+      "status" : "passed",
+      "time" : {
+        "start" : 1598290244007,
+        "stop" : 1598290244008,
+        "duration" : 1
+      }
+    } ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 2,
+        "unknown" : 0,
+        "total" : 2
+      },
+      "items" : [ {
+        "uid" : "5e4f765089984e4e",
+        "status" : "passed",
+        "time" : {
+          "start" : 1598290244007,
+          "stop" : 1598290244008,
+          "duration" : 1
+        }
+      } ]
+    },
+    "tags" : [ "run(order=3)" ]
+  },
+  "source" : "1195b8778f246ab2.json",
+  "parameterValues" : [ "222", "1000", "222000" ]
+}
