@@ -4,7 +4,6 @@ import pytest
 from conftest import get_testdata
 
 
-@allure.feature("测试类")
 class TestPractice:
 
     def setup_class(self):
