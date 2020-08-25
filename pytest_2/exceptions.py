@@ -1,26 +1,32 @@
 def div(a, b):
     return a / b
 
-
-a = 1
-b = 0
 """ 
 try:{}
 except Exception as e:{}
 except 
 """
-class zero(Exception):
+class ZeroDiv(Exception): # 继承Exception类
     print("我定义的类")
 
+class Test1:
 
-try:
-    c = div(1, 0)
-except Exception as e:
-    print(e.__class__.__name__)
-    print(b)
-try:
-    if b == 0:
-        raise zero
-except Exception as e:
-    pass
+    def test_method1(self,a,b):
+        self.b=b
+        try:
+            div(a, b)
+        except Exception as e:
+            print(e.__class__.__name__)
 
+    def test_method2(self,b):
+        try:
+            if b == 0:
+                raise ZeroDiv
+        except Exception as e:
+            print(e.__class__.__name__)
+
+if __name__=="__main__":
+    test1=Test1()
+    test1.test_method1(1,0)
+    a=test1.b
+    test1.test_method2(a)

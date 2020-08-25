@@ -1,9 +1,14 @@
 import os
-
 import pytest
 import yaml
 from calculator_demo import Calculator
 
+# params 传递参数；ids 命名
+@pytest.fixture(params=[("tom",12345),("jerry",23456)],ids=["tom","jerry"])
+def login(request): # request 接受fixture传递测参数
+    print(request.param) # request.param 引用参数
+    yield request.param
+    print("\nyield88888888")
 
 @pytest.fixture(scope="module")
 def get_calc():
