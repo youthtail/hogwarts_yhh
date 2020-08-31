@@ -19,7 +19,7 @@ def get_calc():
 
 
 def get_testdata(method_name):
-    data_path = os.getcwd() + '/data1.yml'
+    data_path = os.path.dirname(os.path.abspath(__file__)) + '/data1.yml'
     with open(data_path, encoding='utf-8') as f:
         testdata = yaml.safe_load(f)
         data = testdata[method_name]["data"]
