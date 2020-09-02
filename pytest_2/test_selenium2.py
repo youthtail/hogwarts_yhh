@@ -1,6 +1,5 @@
 import shelve
-from optparse import Option
-
+import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
@@ -10,27 +9,30 @@ class TestSelenium2:
         option = Options()
         option._debugger_address = 'localhost:9222'
         self.driver = webdriver.Chrome(options=option)
-        # 吟诗等待
+        # self.driver.get("https://ceshiren.com/")
+        # 隐式等待
         self.driver.implicitly_wait(5)
 
     def teardown(self):
         self.driver.quit()
 
+    @pytest.mark.skip
     def test_1(self):
-        # self.driver.get("https://ceshiren.com/")
         self.driver.find_element_by_link_text("所有分类").click()
-        assert "active" == self.driver.find_element_by_link_text("所有分类").get_property("class")
+        assert "active" == self.driver.find_element_by_link_text("所有分类").get_attribute("class")
 
+    @pytest.mark.run(order=1)
     def test_get_cookies(self):
-        # 把cookies保存到数据库
+        # # 把cookies保存到数据库
         # cookies = self.driver.get_cookies()
-        # db = shelve.open("mydb/loggincookies")
+        # # mydb目录要提前创建
+        # db =shelve.open('mydb/logincookies')
         # db['cookies'] = cookies
         # db.close()
 
         # 从数据库读取cookies
-        db = shelve.open('mydb/loggincookies')
-        cookies:dict = db['cookies']
+        db = shelve.open('mydb/logincookies')
+        cookies = db['cookies']
         db.close()
 
         # 把cookies加到driver中
@@ -40,12 +42,12 @@ class TestSelenium2:
         cookie.pop('exepiry')删除k
         self.driver.add_cookie()，只能加入字典
         '''
-        for cookie in cookies:
-            if 'exepiry' in cookies.keys():
-                cookie.pop('exepiry')
-            print(cookie)
-            self.driver.add_cookie()
-
         #   cookies是一个字典列表，需要使用循环加入到driver中
+        for cookie in cookies:
+            if 'expiry' in cookie.keys():
+                print(cookie)
+                cookie.pop('expiry')
+                print(cookie)
+            self.driver.add_cookie(cookie)
 
 
