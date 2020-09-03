@@ -1,7 +1,12 @@
 import shelve
+from time import sleep
+
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.by import By
+
+from comm_func import CommFunc
 
 
 class TestSelenium2:
@@ -9,7 +14,7 @@ class TestSelenium2:
         option = Options()
         option._debugger_address = 'localhost:9222'
         self.driver = webdriver.Chrome(options=option)
-        # self.driver.get("https://ceshiren.com/")
+
         # 隐式等待
         self.driver.implicitly_wait(5)
 
@@ -23,17 +28,12 @@ class TestSelenium2:
 
     @pytest.mark.run(order=1)
     def test_get_cookies(self):
-        # # 把cookies保存到数据库
-        # cookies = self.driver.get_cookies()
-        # # mydb目录要提前创建
-        # db =shelve.open('mydb/logincookies')
-        # db['cookies'] = cookies
-        # db.close()
+        # mydb目录要提前创建
+        # 把cookies保存到数据库
+        CommFunc().save_to_db("weixin_token", self.driver)
+        cookies = CommFunc().get_from_db("weixin_token")
+        print(cookies)
 
-        # 从数据库读取cookies
-        db = shelve.open('mydb/logincookies')
-        cookies = db['cookies']
-        db.close()
 
         # 把cookies加到driver中
         '''
@@ -45,9 +45,12 @@ class TestSelenium2:
         #   cookies是一个字典列表，需要使用循环加入到driver中
         for cookie in cookies:
             if 'expiry' in cookie.keys():
-                print(cookie)
                 cookie.pop('expiry')
-                print(cookie)
             self.driver.add_cookie(cookie)
+        self.driver.get("https://work.weixin.qq.com/wework_admin/frame#index")
+        # self.driver.find_element_by_id("menu_contacts").click()
+        self.driver.find_element_by_link_text("导入通讯录").click()
+        self.driver.find_element_by_id("js_upload_file_input").send_keys("/Users/huihuiyang/Downloads/1.xls")
+        assert "1.xls" == self.driver.find_element_by_id("upload_file_name").text
 
 
